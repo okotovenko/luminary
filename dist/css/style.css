@@ -418,6 +418,16 @@ body::after {
   object-fit: cover;
   min-width: 100%
 }
+.video__content::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: linear-gradient(233deg,rgba(0,0,0,0) 39.17%,rgba(0,0,0,.6) 100%),linear-gradient(180deg,rgba(0,0,0,.3) 0,rgba(0,0,0,0) 21.21%)
+}
 .parnter {
   background: center/cover url(../img/partner/bg.svg) no-repeat
 }
@@ -437,12 +447,15 @@ body::after {
   font-weight: 400;
   line-height: 100%;
   letter-spacing: -.01em;
-  margin-bottom: .625rem
+  margin-bottom: .625rem;
+  width: 100%;
+  font-size: 1.5rem
 }
 .parnter__container h4 {
   font-size: 1rem;
   line-height: 100%;
-  letter-spacing: -.01em
+  letter-spacing: -.01em;
+  width: 100%
 }
 .parnter__left {
   width: 100%;
@@ -451,6 +464,7 @@ body::after {
 .parnter__text {
   font-weight: 300;
   font-size: 1.125rem;
+  line-height: 138.888889%;
   text-align: left
 }
 .parnter__text :not(:last-child) {
@@ -466,7 +480,7 @@ body::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center
+  text-align: left
 }
 .parnter__img {
   width: 100%;
@@ -547,47 +561,64 @@ body::after {
 .strategies__items {
   display: grid;
   gap: 1.875rem;
-  grid-template-columns: repeat(auto-fit,minmax(300px,1fr))
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  width: 100%;
+  max-width: 46.875rem
 }
 .strategies__item {
   padding: 1.125rem 1.3125rem;
   min-height: 12.5rem;
-  clip-path: polygon(100% 0,100% 100%,8% 100%,0 85%,0 0);
   position: relative;
-  background: #fff
+  background: #000;
+  border: .5px solid #fff;
+  transition: all .3s ease 0s
 }
 .strategies__item::before {
+  content: "";
+  position: absolute;
+  left: -.75rem;
+  bottom: -.875rem;
+  width: 1.6875rem;
+  height: 1.9375rem;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+  background: #000;
+  border-left: 1px solid #fff;
+  z-index: 2
+}
+.strategies__item::after {
   content: "";
   position: absolute;
   width: 100%;
   height: 100%;
   inset: 0;
-  background: rgba(0,0,0,0);
   background: #000;
-  clip-path: polygon(99.5% .5%,99.5% 99.5%,8.5% 99.5%,.5% 84.5%,.5% .5%);
-  pointer-events: none
+  background: radial-gradient(188.38% 141.42% at 0 100%,#f1ba24 0,#f15a24 36.7502093315%,#000 100%);
+  pointer-events: none;
+  transition: all .6s ease 0s;
+  opacity: 0
 }
 .strategies__item h3 {
   position: relative;
+  z-index: 2;
   font-weight: 200;
   line-height: 125%;
-  letter-spacing: .01em
+  letter-spacing: .01em;
+  font-size: 1.5rem
 }
 .decor-1 {
   position: absolute;
-  bottom: .8125rem;
-  right: 11.25rem;
-  width: 10.25rem;
-  height: 17.4375rem
+  right: 5%;
+  bottom: 20%;
+  width: 19.4375rem;
+  height: 33rem
 }
 .decor-2 {
   -webkit-transform: rotate(270deg);
   transform: rotate(270deg);
   position: absolute;
-  bottom: -6.25rem;
-  right: 0;
-  height: 20.625rem;
-  width: 12.0625rem
+  bottom: -10%;
+  right: -20%
 }
 .sorry__container {
   position: relative
@@ -683,9 +714,6 @@ body::after {
   .parnter__container h2 {
     font-size: 2rem
   }
-  .parnter__container h3 {
-    font-size: 1.5rem
-  }
   .companies {
     padding-top: 5.3125rem
   }
@@ -707,8 +735,17 @@ body::after {
   .strategies__container h2 {
     font-size: 2rem
   }
-  .strategies__item h3 {
-    font-size: 1.5rem
+  .decor-1 {
+    height: 33rem
+  }
+  .decor-1 {
+    width: 19.4375rem
+  }
+  .decor-2 {
+    height: 39rem
+  }
+  .decor-2 {
+    width: 22.8125rem
   }
   .sorry__container {
     padding-top: 14.25rem
@@ -751,7 +788,7 @@ body::after {
     padding-bottom: 2.5rem
   }
   .video h1 {
-    font-size: 1.5rem
+    font-size: 2.25rem
   }
   .parnter {
     padding-top: 2.5rem
@@ -760,10 +797,7 @@ body::after {
     padding-bottom: 2.5rem
   }
   .parnter__container h2 {
-    font-size: 1.25rem
-  }
-  .parnter__container h3 {
-    font-size: 1.125rem
+    font-size: 1.875rem
   }
   .companies {
     padding-top: 2.5rem
@@ -772,10 +806,10 @@ body::after {
     padding-bottom: 2.5rem
   }
   .companies__container h2 {
-    font-size: 1.25rem
+    font-size: 1.875rem
   }
   .companies__container h2 {
-    margin-bottom: 1.875rem
+    margin-bottom: 2.1875rem
   }
   .strategies__container {
     padding-top: 2.5rem
@@ -784,10 +818,19 @@ body::after {
     padding-bottom: 2.5rem
   }
   .strategies__container h2 {
-    font-size: 1.25rem
+    font-size: 1.875rem
   }
-  .strategies__item h3 {
-    font-size: 1.25rem
+  .decor-1 {
+    height: 19rem
+  }
+  .decor-1 {
+    width: 12.1875rem
+  }
+  .decor-2 {
+    height: 22.625rem
+  }
+  .decor-2 {
+    width: 14rem
   }
   .sorry__container {
     padding-top: 2.5rem
@@ -808,6 +851,16 @@ body::after {
   }
   .parnter__left {
     max-width: 100%
+  }
+  .strategies__items {
+    justify-self: center
+  }
+  .decor-1 {
+    position: inherit
+  }
+  .decor-2 {
+    bottom: -5%;
+    right: 10%
   }
 }
 @media (max-width:47.99875em) {
@@ -836,8 +889,8 @@ body::after {
   .icon-menu {
     display: block;
     position: relative;
-    width: 1.875rem;
-    height: 1.125rem;
+    width: 1.125rem;
+    height: .75rem;
     z-index: 5
   }
   .icon-menu span,
@@ -873,14 +926,29 @@ body::after {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg)
   }
+  .popup {
+    padding: 0
+  }
   .popup__content .parnter__img {
     min-width: 9.375rem
   }
   .popup__content {
-    align-items: center
+    align-items: center;
+    flex-direction: column;
+    clip-path: polygon(100% 0,100% 100%,100% 100%,0 100%,0 0);
+    max-width: 100%;
+    height: 100%;
+    height: 100lvh;
+    height: 100vh
+  }
+  .popup__box h3 {
+    color: #fff
   }
   .header__menu {
-    flex-direction: row-reverse
+    flex-direction: row-reverse;
+    -webkit-column-gap: 1.6875rem;
+    -moz-column-gap: 1.6875rem;
+    column-gap: 1.6875rem
   }
   .header {
     padding-top: 1.0625rem;
@@ -888,9 +956,10 @@ body::after {
   }
   .video__decor {
     bottom: inherit;
-    top: -20%;
-    aspect-ratio: 258/441;
-    height: 200%
+    top: -15%;
+    height: 100%;
+    left: -25%;
+    aspect-ratio: 143/243
   }
   .video__decor svg {
     width: 100%;
@@ -908,25 +977,25 @@ body::after {
     margin-top: 0
   }
   .parnter__right {
-    gap: .9375rem
+    gap: 1.875rem;
+    flex-direction: column
+  }
+  .parnter__item {
+    width: 100%;
+    max-width: 21.875rem;
+    align-self: center
   }
   .parnter__img {
-    min-width: auto
+    min-width: 100%;
+    max-width: 21.875rem;
+    aspect-ratio: 350/400
+  }
+  .companies__container h2 {
+    width: 100%;
+    max-width: 9.375rem
   }
   .companies__box {
     flex-direction: column
-  }
-  .decor-1 {
-    bottom: inherit;
-    top: -20%;
-    aspect-ratio: 258/441;
-    height: 200%
-  }
-  .decor-1 svg {
-    width: 100%;
-    height: 100%;
-    -o-object-fit: cover;
-    object-fit: cover
   }
 }
 @media (max-width:47.99875em)and (any-hover:none) {
@@ -944,15 +1013,15 @@ body::after {
     justify-content: center
   }
 }
-@media (max-width:31.25em) {
-  .popup__content {
-    flex-direction: column;
-    clip-path: polygon(100% 0,100% 100%,9% 100%,0 95%,0 0)
-  }
-}
 @media (max-width:28.125em) {
   .strategies__item {
-    min-height: 9.375rem
+    min-height: 12.125rem
+  }
+}
+@media (max-width:26.875em) {
+  .companies__item {
+    aspect-ratio: 165/44;
+    max-width: 10.3125rem
   }
 }
 @media (min-width:20em)and (max-width:73.125em) {
@@ -975,7 +1044,7 @@ body::after {
     padding-bottom: clamp(2.5rem ,1.3235294118rem + 5.8823529412vw ,5.625rem)
   }
   .video h1 {
-    font-size: clamp(1.5rem ,.7rem + 4vw ,3.625rem)
+    font-size: clamp(2.25rem ,1.7323529412rem + 2.5882352941vw ,3.625rem)
   }
   .parnter {
     padding-top: clamp(2.5rem ,.9470588235rem + 7.7647058824vw ,6.625rem)
@@ -984,10 +1053,7 @@ body::after {
     padding-bottom: clamp(2.5rem ,1.0176470588rem + 7.4117647059vw ,6.4375rem)
   }
   .parnter__container h2 {
-    font-size: clamp(1.25rem ,.9676470588rem + 1.4117647059vw ,2rem)
-  }
-  .parnter__container h3 {
-    font-size: clamp(1.125rem ,.9838235294rem + .7058823529vw ,1.5rem)
+    font-size: clamp(1.875rem ,1.8279411765rem + .2352941176vw ,2rem)
   }
   .companies {
     padding-top: clamp(2.5rem ,1.4411764706rem + 5.2941176471vw ,5.3125rem)
@@ -996,10 +1062,10 @@ body::after {
     padding-bottom: clamp(2.5rem ,1.7rem + 4vw ,4.625rem)
   }
   .companies__container h2 {
-    font-size: clamp(1.25rem ,.9676470588rem + 1.4117647059vw ,2rem)
+    font-size: clamp(1.875rem ,1.8279411765rem + .2352941176vw ,2rem)
   }
   .companies__container h2 {
-    margin-bottom: clamp(1.875rem ,.6279411765rem + 6.2352941176vw ,5.1875rem)
+    margin-bottom: clamp(2.1875rem ,1.0580882353rem + 5.6470588235vw ,5.1875rem)
   }
   .strategies__container {
     padding-top: clamp(2.5rem ,1.7rem + 4vw ,4.625rem)
@@ -1008,10 +1074,19 @@ body::after {
     padding-bottom: clamp(2.5rem ,-.0411764706rem + 12.7058823529vw ,9.25rem)
   }
   .strategies__container h2 {
-    font-size: clamp(1.25rem ,.9676470588rem + 1.4117647059vw ,2rem)
+    font-size: clamp(1.875rem ,1.8279411765rem + .2352941176vw ,2rem)
   }
-  .strategies__item h3 {
-    font-size: clamp(1.25rem ,1.1558823529rem + .4705882353vw ,1.5rem)
+  .decor-1 {
+    height: clamp(19rem ,13.7294117647rem + 26.3529411765vw ,33rem)
+  }
+  .decor-1 {
+    width: clamp(12.1875rem ,9.4580882353rem + 13.6470588235vw ,19.4375rem)
+  }
+  .decor-2 {
+    height: clamp(22.625rem ,16.4602941176rem + 30.8235294118vw ,39rem)
+  }
+  .decor-2 {
+    width: clamp(14rem ,10.6823529412rem + 16.5882352941vw ,22.8125rem)
   }
   .sorry__container {
     padding-top: clamp(2.5rem ,-1.9235294118rem + 22.1176470588vw ,14.25rem)
@@ -1055,10 +1130,16 @@ body::after {
   }
   .strategies__item:hover {
     cursor: pointer;
-    background: radial-gradient(188.38% 141.42% at 0 100%,#f1ba24 0,#f15a24 36.7502093315%,#000 100%)
+    transition: all .8s ease 0s;
+    border: .5px solid transparent
   }
   .strategies__item:hover::before {
-    background: radial-gradient(188.38% 141.42% at 0 100%,#f1ba24 0,#f15a24 36.7502093315%,#000 100%)
+    transition: all .8s ease 0s;
+    border-left: 1px solid transparent
+  }
+  .strategies__item:hover::after {
+    transition: all .6s ease 0s;
+    opacity: 1
   }
   .sorry__container a:hover {
     cursor: pointer;
