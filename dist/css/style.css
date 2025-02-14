@@ -292,7 +292,7 @@ body::after {
   }
 }
 .header {
-  z-index: 5
+  z-index: 20
 }
 .header__container {
   display: flex;
@@ -388,7 +388,8 @@ body::after {
   left: -9.375rem;
   bottom: 3.75rem;
   width: 16.125rem;
-  height: 27.5625rem
+  height: 27.5625rem;
+  z-index: 6
 }
 .video h1 {
   font-family: "IBM Plex Serif";
@@ -401,7 +402,8 @@ body::after {
   font-weight: 300;
   line-height: 124%;
   text-align: left;
-  color: #fff
+  color: #fff;
+  z-index: 6
 }
 .video h1.animation {
   -webkit-animation: top .2s .8s linear both;
@@ -425,7 +427,7 @@ body::after {
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 10;
+  z-index: 5;
   background: linear-gradient(233deg,rgba(0,0,0,0) 39.17%,rgba(0,0,0,.6) 100%),linear-gradient(180deg,rgba(0,0,0,.3) 0,rgba(0,0,0,0) 21.21%)
 }
 .parnter {
@@ -972,8 +974,16 @@ body::after {
     bottom: 0;
     padding-top: 1.25rem
   }
+  .video__content::before {
+    width: 150%;
+    height: 150%
+  }
+  .video__content iframe {
+    left: -37%!important;
+    width: 150%!important;
+    height: 150%!important
+  }
   .video {
-    margin-top: -6rem;
     margin-top: 0
   }
   .parnter__right {
@@ -1003,6 +1013,17 @@ body::after {
     cursor: default
   }
 }
+@media (max-width:37.5em) {
+  .video__content::before {
+    width: 170%;
+    height: 170%
+  }
+  .video__content iframe {
+    left: -42%!important;
+    width: 170%!important;
+    height: 170%!important
+  }
+}
 @media (max-width:34.375em) {
   .footer__container {
     flex-direction: column;
@@ -1011,6 +1032,17 @@ body::after {
   }
   .footer__link {
     justify-content: center
+  }
+}
+@media (max-width:31.25em) {
+  .video__content::before {
+    width: 200%;
+    height: 200%
+  }
+  .video__content iframe {
+    left: -50%!important;
+    width: 200%!important;
+    height: 200%!important
   }
 }
 @media (max-width:28.125em) {
@@ -1022,6 +1054,17 @@ body::after {
   .companies__item {
     aspect-ratio: 165/44;
     max-width: 10.3125rem
+  }
+}
+@media (max-width:23.125em) {
+  .video__content::before {
+    width: 230%;
+    height: 230%
+  }
+  .video__content iframe {
+    left: -58%!important;
+    width: 230%!important;
+    height: 230%!important
   }
 }
 @media (min-width:20em)and (max-width:73.125em) {
